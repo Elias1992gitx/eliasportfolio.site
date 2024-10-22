@@ -1,0 +1,22 @@
+:root {
+    --color-primary-600: 79, 70, 229;
+    --color-primary-700: 67, 56, 202;
+    --color-primary-800: 55, 48, 163;
+    --color-secondary-800: 30, 64, 175;
+  }
+  
+  .react-activity-calendar {
+    width: 100% !important;
+    overflow-x: auto;
+  }
+  
+  .react-activity-calendar__calendar {
+    min-width: 100%;
+  }
+  
+  .react-activity-calendar__calendar rect {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1px;
+    rx: 2;
+    ry: 2;
+  }
