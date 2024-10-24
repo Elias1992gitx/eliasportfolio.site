@@ -92,6 +92,9 @@ importers:
       ejs:
         specifier: ^3.1.10
         version: 3.1.10
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       framer-motion:
         specifier: ^11.11.8
         version: 11.11.9(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
