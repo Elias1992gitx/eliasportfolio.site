@@ -1,4 +1,3 @@
-
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
@@ -9,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ShareButtons from "./share-blog";
 import { ChevronLeft, Clock, User } from "lucide-react";
+import { GetServerSideProps } from 'next';
 
 const builder = imageUrlBuilder(client);
 
@@ -70,7 +70,14 @@ const componentsTest = {
   },
 };
 
-const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
+// Define the type for the component props
+interface BlogDetailPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogDetailPage: React.FC<BlogDetailPageProps> = async ({ params }) => {
   const { slug } = params;
   const data = await getDetailPost(slug);
   let postsData: Post[] = await getPosts();
@@ -194,6 +201,7 @@ export default BlogDetailPage;
 // }
 
 // export default page
+
 
 
 
