@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const pages = ['About', 'Projects', 'Insights', 'Contact']
+const pages = ['About', 'Projects', 'Stack','Insights', 'Contact']
 const memberPages = ['Login', 'SignUp']
 
 export default function Navbar() {
@@ -40,7 +40,7 @@ export default function Navbar() {
               />
             ))}
             <div className="relative">
-              <button
+              {/* <button
                 onClick={() => setMemberMenuOpen(!memberMenuOpen)}
                 className="flex items-center text-sm font-medium text-gray-800 transition-colors duration-200 hover:text-gray-600"
               >
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <ChevronDown
                   className={`ml-1 h-4 w-4 transition-transform duration-200 ${memberMenuOpen ? 'rotate-180' : ''}`}
                 />
-              </button>
+              </button> */}
               <AnimatePresence>
                 {memberMenuOpen && (
                   <motion.div
@@ -116,7 +116,7 @@ export default function Navbar() {
                   className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-200 hover:text-gray-600"
                 />
               ))}
-              <div className="space-y-1 border-t border-gray-300 pt-4">
+              {/* <div className="space-y-1 border-t border-gray-300 pt-4">
                 <p className="px-3 text-xs font-semibold uppercase text-gray-600">
                   Member Zone
                 </p>
@@ -128,7 +128,7 @@ export default function Navbar() {
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-200 hover:text-gray-600"
                   />
                 ))}
-              </div>
+              </div> */}
             </div>
           </motion.div>
         )}

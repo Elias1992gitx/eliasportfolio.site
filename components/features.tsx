@@ -73,12 +73,12 @@ export const Features = () => {
       className="relative z-20 py-3 md:py-10"
     >
       <Heading
-        as="h2"
+        as="h3"
         className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-purple-700"
       >
         Expertise and Achievements
       </Heading>
-      <Subheading className="text-center text-lg font-semibold mb-12">
+      <Subheading className="text-center text-lg  mb-12">
         A combination of hands-on expertise, strong academic background, and a
         commitment to lifelong learning.
       </Subheading>

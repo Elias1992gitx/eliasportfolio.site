@@ -1,22 +1,19 @@
-import { AmbientColor } from "@/components/ambient-color";
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from '@/components/contact-form'
 
-import { Metadata } from "next";
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Tekletsadik",
-  description:
-    "Contact me here!",
+  title: 'Elias',
+  description: 'Contact me here!',
   openGraph: {
-    images: ["https://proactiv-aceternity.vercel.app/banner.png"],
+    images: ['https://proactiv-aceternity.vercel.app/banner.png'],
   },
-};
+}
 
 export default function ContactPage() {
   return (
-    <div className="relative overflow-hidden">
-
+    <div className="relative overflow-hidden bg-white p-6">
       <ContactForm />
     </div>
-  );
+  )
 }

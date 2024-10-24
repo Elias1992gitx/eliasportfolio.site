@@ -1,7 +1,6 @@
-import React from 'react'
-import Image from 'next/image'
 import LinkItem from '@/components/ui/link-item'
 import { ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -36,7 +35,7 @@ export default function Header() {
             </p>
             <div className="mr-auto ml-2 flex flex-wrap gap-y-4 items-start justify-start gap-x-3">
               <LinkItem
-                href="/projects"
+                href="/contact"
                 className="inline-flex rounded-none uppercase font-mono text-center group items-center w-full justify-center bg-gradient-to-tr from-gray-800 to-black text-white border border-transparent hover:bg-gray-700 transition-colors sm:w-auto py-4 px-10 shadow-lg"
               >
                 Contact
@@ -52,7 +51,7 @@ export default function Header() {
               </LinkItem>
 
               {/* <LinkItem
-                href="mailto:tekletsadik@example.com"
+                href="mailto:Eliasdik@example.com"
                 variant="shiny"
                 className="inline-flex font-mono uppercase tracking-tight rounded-none w-full justify-center items-center gap-x-3 border border-gray-300 hover:border-gray-500 bg-white text-black hover:text-black duration-200 sm:w-auto py-4 px-10"
                 target="_blank"

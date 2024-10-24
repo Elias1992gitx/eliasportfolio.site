@@ -1,9 +1,9 @@
 'use client'
 import { motion, useAnimation } from 'framer-motion'
+import { Facebook, Github, Instagram, Linkedin, Mail } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { Linkedin, Instagram, Github, Mail, Facebook } from 'lucide-react'
 
 const socialLinks = [
   {
@@ -105,7 +105,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-r-md transition-colors duration-300"
+                className="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-r-md transition-colors duration-300"
               >
                 Subscribe
               </button>
@@ -126,7 +126,7 @@ export default function Footer() {
               className="font-bold hover:text-purple-600 transition-colors duration-300"
               rel="noreferrer"
             >
-              Nexus Labs
+              Elias Chane
             </Link>
           </p>
         </motion.div>
