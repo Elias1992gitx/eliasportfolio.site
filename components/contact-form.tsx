@@ -80,6 +80,10 @@ export const ContactForm = () => {
         <div className="text-sm mt-10">
           <p className="text-sm text-neutral-400">E-Mail</p>
           <p className="text-sm text-neutral-600">eliashailu492@gmail.com</p>
+          <p><br /></p>
+
+           <p className="text-sm text-neutral-400">Phone</p>
+          <p className="text-sm text-neutral-600">+251960313383</p>
         </div>
       </div>
       <form

@@ -27,9 +27,9 @@ export const Features = () => {
       title: <span className="text-white">Strong Academic Background</span>,
       description: (
         <span className="text-white">
-          Bachelor of Science in Computer Software Engineering from Arbaminch
-          University with a GPA of 3.71, demonstrating a solid foundation in
-          software development.
+          Bachelor of Science in Software Engineering from Arbaminch University
+          with a <b>CGPA of 3.71</b> & <b>76% National Exam</b>, demonstrating a
+          solid foundation in software dev't.
         </span>
       ),
       className: 'col-span-1 md:col-span-3 border-r dark:border-neutral-800',

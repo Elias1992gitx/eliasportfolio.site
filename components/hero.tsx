@@ -1,6 +1,7 @@
 import LinkItem from '@/components/ui/link-item'
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Header() {
   return (
@@ -18,10 +19,12 @@ export default function Header() {
       <section className="py-5 z-10">
         <div className="max-w-screen-2xl mx-auto text-black gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
           <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
-            <h1 className="text-sm text-black group font-geist mr-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/20 via-gray-400/20 to-transparent border-[2px] border-white/5 rounded-3xl w-fit">
-              Multiple certifications & Real world experience
-              <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
-            </h1>
+            <Link href="/projects">
+              <h1 className="text-sm text-black group font-geist mr-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/50 via-gray-400/40 to-transparent border-[2px] border-white/5 rounded-3xl w-fit cursor-pointer">
+                Latest Projects
+                <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
+              </h1>
+            </Link>
             <h2 className="text-4xl md:text-5xl font-geist font-normal tracking-tighter lg:text-5xl text-black">
               Driving innovation at the convergence of{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
@@ -50,14 +53,7 @@ export default function Header() {
                 <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
               </LinkItem>
 
-              {/* <LinkItem
-                href="mailto:Eliasdik@example.com"
-                variant="shiny"
-                className="inline-flex font-mono uppercase tracking-tight rounded-none w-full justify-center items-center gap-x-3 border border-gray-300 hover:border-gray-500 bg-white text-black hover:text-black duration-200 sm:w-auto py-4 px-10"
-                target="_blank"
-              >
-                Linkedin
-              </LinkItem> */}
+          
             </div>
           </div>
           <div className="flex-none mt-14 md:mt-0 md:max-w-xl w-full flex justify-center md:block">

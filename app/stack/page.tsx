@@ -1,82 +1,268 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion'
+import {
+  motion,
+  useAnimation,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion'
 import { Search, ExternalLink } from 'lucide-react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
 
 interface StackCardProps {
-  item: any;
-  index: number;
+  item: any
+  index: number
 }
 
-
 const stackItems = [
+  {
+    name: 'React.js',
+    description: 'A JavaScript library for building user interfaces.',
+    category: 'Development',
+    link: 'https://reactjs.org/',
+    icon: '⚛️',
+  },
+  // Additional technology stacks
+  {
+    name: 'Next.js',
+    description: 'A React framework for production.',
+    category: 'Development',
+    link: 'https://nextjs.org/',
+    icon: '⚛️',
+  },
   {
     name: 'Visual Studio Code',
     description: 'My go-to code editor for all development work.',
     category: 'Development',
     link: 'https://code.visualstudio.com/',
-    icon: '💻'
+    icon: '💻',
+  },
+  {
+    name: 'GitHub',
+    description: 'Platform for version control and collaboration.',
+    category: 'Development',
+    link: 'https://github.com/',
+    icon: '🐙',
   },
   {
     name: 'Figma',
     description: 'For all my design needs and collaborating with designers.',
     category: 'Design',
     link: 'https://www.figma.com/',
-    icon: '🎨'
+    icon: '🎨',
   },
   {
     name: 'Notion',
     description: 'Where I keep all my notes, docs, and project management.',
     category: 'Productivity',
     link: 'https://www.notion.so/',
-    icon: '📝'
+    icon: '📝',
   },
   {
     name: 'Vercel',
     description: 'My preferred platform for deploying web applications.',
     category: 'Hosting',
     link: 'https://vercel.com/',
-    icon: '🚀'
+    icon: '🚀',
+  },
+  // {
+  //   name: 'Spotify',
+  //   description: 'For music while I work and discovering new tunes.',
+  //   category: 'Entertainment',
+  //   link: 'https://www.spotify.com/',
+  //   icon: '🎵',
+  // },
+
+  // Additional technology stacks
+
+  {
+    name: 'Slack',
+    description: 'Communication and collaboration tool for teams.',
+    category: 'Productivity',
+    link: 'https://slack.com/',
+    icon: '💬',
   },
   {
-    name: 'Spotify',
-    description: 'For music while I work and discovering new tunes.',
-    category: 'Entertainment',
-    link: 'https://www.spotify.com/',
-    icon: '🎵'
-  }
+    name: 'Adobe Photoshop',
+    description: 'Software for photo editing and graphic design.',
+    category: 'Design',
+    link: 'https://www.adobe.com/products/photoshop.html',
+    icon: '🖌️',
+  },
+  {
+    name: 'AWS',
+    description: 'Cloud computing services for hosting and more.',
+    category: 'Hosting',
+    link: 'https://aws.amazon.com/',
+    icon: '☁️',
+  },
+ 
+  // Additional technology stacks
+ 
+
+  {
+    name: 'Tailwind CSS',
+    description: 'A utility-first CSS framework for rapid UI development.',
+    category: 'Design',
+    link: 'https://tailwindcss.com/',
+    icon: '🎨',
+  },
+  {
+    name: 'TypeScript',
+    description:
+      'A typed superset of JavaScript that compiles to plain JavaScript.',
+    category: 'Development',
+    link: 'https://www.typescriptlang.org/',
+    icon: '📝',
+  },
+  {
+    name: 'ASP.NET Core',
+    description:
+      'A cross-platform, high-performance framework for building modern, cloud-based, Internet-connected applications.',
+    category: 'Development',
+    link: 'https://dotnet.microsoft.com/apps/aspnet',
+    icon: '🌐',
+  },
+  {
+    name: 'SQL Server',
+    description:
+      'A relational database management system developed by Microsoft.',
+    category: 'Database',
+    link: 'https://www.microsoft.com/en-us/sql-server',
+    icon: '💾',
+  },
+
+  {
+    name: 'MongoDB',
+    description:
+      'A document-oriented NoSQL database used for high volume data storage.',
+    category: 'Database',
+    link: 'https://www.mongodb.com/',
+    icon: '🍃',
+  },
+  {
+    name: 'PostgreSQL',
+    description: 'A powerful, open source object-relational database system.',
+    category: 'Database',
+    link: 'https://www.postgresql.org/',
+    icon: '🐘',
+  },
+  {
+    name: 'Python',
+    description:
+      'A versatile programming language known for its ease of use and readability.',
+    category: 'Development',
+    link: 'https://www.python.org/',
+    icon: '🐍',
+  },
+  {
+    name: 'Django',
+    description:
+      'A high-level Python web framework that encourages rapid development.',
+    category: 'Development',
+    link: 'https://www.djangoproject.com/',
+    icon: '🌐',
+  },
+  {
+    name: 'Node.js',
+    description: "A JavaScript runtime built on Chrome's V8 JavaScript engine.",
+    category: 'Development',
+    link: 'https://nodejs.org/',
+    icon: '🟢',
+  },
+  {
+    name: 'NestJS',
+    description:
+      'A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.',
+    category: 'Development',
+    link: 'https://nestjs.com/',
+    icon: '🚀',
+  },
+  {
+    name: 'Odoo',
+    description: 'An open-source suite of business applications.',
+    category: 'ERP',
+    link: 'https://www.odoo.com/',
+    icon: '🧩',
+  },
+  {
+    name: 'ERPNext',
+    description: 'An open-source ERP solution for businesses of all sizes.',
+    category: 'ERP',
+    link: 'https://erpnext.com/',
+    icon: '📊',
+  },
+
+  {
+    name: 'Express.js',
+    description: 'A minimal and flexible Node.js web application framework.',
+    category: 'Development',
+    link: 'https://expressjs.com/',
+    icon: '🚂',
+  },
+  {
+    name: 'Docker',
+    description:
+      'A platform for developing, shipping, and running applications in containers.',
+    category: 'DevOps',
+    link: 'https://www.docker.com/',
+    icon: '🐳',
+  },
+  {
+    name: 'Digital Ocean',
+    description:
+      'A cloud infrastructure provider offering cloud services to help deploy and scale applications.',
+    category: 'Hosting',
+    link: 'https://www.digitalocean.com/',
+    icon: '☁️',
+  },
+  {
+    name: 'Hostinger',
+    description:
+      'A web hosting provider offering a variety of hosting services.',
+    category: 'Hosting',
+    link: 'https://www.hostinger.com/',
+    icon: '🌐',
+  },
+  {
+    name: 'Heroku',
+    description:
+      'A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.',
+    category: 'Hosting',
+    link: 'https://www.heroku.com/',
+    icon: '🚀',
+  },
 ]
 
-const categories = Array.from(new Set(stackItems.map(item => item.category)));
+const categories = Array.from(new Set(stackItems.map((item) => item.category)))
 
 const StackCard: React.FC<StackCardProps> = ({ item, index }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [5, -5]);
-  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
+  const cardRef = useRef<HTMLDivElement>(null)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  const rotateX = useTransform(y, [-100, 100], [5, -5])
+  const rotateY = useTransform(x, [-100, 100], [-5, 5])
 
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const mouseX = event.clientX - centerX;
-    const mouseY = event.clientY - centerY;
-    
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    const mouseX = event.clientX - centerX
+    const mouseY = event.clientY - centerY
+
     // Smooth out the movement
-    x.set(mouseX * 0.1);
-    y.set(mouseY * 0.1);
-  };
+    x.set(mouseX * 0.1)
+    y.set(mouseY * 0.1)
+  }
 
   const handleMouseLeave = () => {
     // Smooth return to original position
-    x.set(0);
-    y.set(0);
-  };
+    x.set(0)
+    y.set(0)
+  }
 
   return (
     <motion.div
@@ -87,11 +273,11 @@ const StackCard: React.FC<StackCardProps> = ({ item, index }) => {
       transition={{ delay: 0.1 * index, duration: 0.5 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ 
-        rotateX, 
-        rotateY, 
+      style={{
+        rotateX,
+        rotateY,
         z: 100,
-        transition: "all 0.15s ease" // Smooth transition for all properties
+        transition: 'all 0.15s ease', // Smooth transition for all properties
       }}
     >
       <Card className="bg-transparent backdrop-blur-sm rounded-lg overflow-hidden relative group h-full border border-gray-800 hover:border-blue-500 transition-colors duration-300">
@@ -105,12 +291,13 @@ const StackCard: React.FC<StackCardProps> = ({ item, index }) => {
         />
         <CardContent className="p-6 relative z-10 flex flex-col h-full">
           <div className="flex items-center mb-4">
-           
             <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400 fancy-text">
               {item.name}
             </h2>
           </div>
-          <p className="text-gray-300 mb-4 flex-grow fancy-text-description">{item.description}</p>
+          <p className="text-gray-300 mb-4 flex-grow fancy-text-description">
+            {item.description}
+          </p>
           <div className="flex justify-between items-center mt-auto">
             <motion.a
               href={item.link}
@@ -120,13 +307,14 @@ const StackCard: React.FC<StackCardProps> = ({ item, index }) => {
               whileHover={{ x: 5 }}
             >
               Learn More
-              <motion.span
-                className="ml-1 group-hover:translate-x-1 transition-transform duration-300"
-              >
+              <motion.span className="ml-1 group-hover:translate-x-1 transition-transform duration-300">
                 <ExternalLink className="w-4 h-4" />
               </motion.span>
             </motion.a>
-            <Badge variant="outline" className="bg-gray-800/50 text-gray-300 border-blue-500/50 fancy-text-badge">
+            <Badge
+              variant="outline"
+              className="bg-gray-800/50 text-gray-300 border-blue-500/50 fancy-text-badge"
+            >
               {item.category}
             </Badge>
           </div>
@@ -145,22 +333,23 @@ export default function StackPage() {
   useEffect(() => {
     searchAnimation.start({
       boxShadow: [
-        "0 0 0 0 rgba(59, 130, 246, 0)",
-        "0 0 0 10px rgba(59, 130, 246, 0.1)",
-        "0 0 0 20px rgba(59, 130, 246, 0)",
+        '0 0 0 0 rgba(59, 130, 246, 0)',
+        '0 0 0 10px rgba(59, 130, 246, 0.1)',
+        '0 0 0 20px rgba(59, 130, 246, 0)',
       ],
       transition: {
         duration: 1.5,
         repeat: Infinity,
-        repeatType: "loop",
+        repeatType: 'loop',
       },
     })
   }, [searchAnimation])
 
-  const filteredItems = stackItems.filter(item =>
-    (item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchTerm.toLowerCase())) &&
-    (selectedCategory === 'All' || item.category === selectedCategory)
+  const filteredItems = stackItems.filter(
+    (item) =>
+      (item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (selectedCategory === 'All' || item.category === selectedCategory)
   )
 
   return (
@@ -249,4 +438,3 @@ export default function StackPage() {
     </div>
   )
 }
-
